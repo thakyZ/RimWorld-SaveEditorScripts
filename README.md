@@ -1,3 +1,3 @@
 # RimWorld - Save Editing Scripts
 
-A collection of scripts by @thakyZ to edit RimWorld saves.
+A collection of scripts by [@thakyz](https://github.com/thakyZ) to edit RimWorld saves.
