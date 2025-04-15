@@ -2,9 +2,7 @@
 name = "save-editor-scripts"
 version = "0.1.0"
 description = "A collection of scripts by @thakyZ to edit RimWorld saves."
-authors = [
-    {name = "thakyZ",email = "950594+thakyZ@users.noreply.github.com"}
-]
+authors = [{name = "thakyZ",email = "950594+thakyZ@users.noreply.github.com"}]
 readme = "README.md"
 
 [tool.poetry]
@@ -22,6 +20,11 @@ mypy = "^1.15.0"
 isort = "^6.0.1"
 pylint = "^3.3.6"
 lxml-stubs = "^0.5.1"
+pytest = "^8.3.5"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
 
 [tool.pylint]
 extension-pkg-allow-list = [
@@ -29,6 +32,37 @@ extension-pkg-allow-list = [
     "elementpath"
 ]
 
-[build-system]
-requires = ["poetry-core>=2.0.0,<3.0.0"]
-build-backend = "poetry.core.masonry.api"
+[tool.isort]
+profile = "black"
+src_paths = ["src", "test"]
+
+[tool.mypy]
+disallow_any_generics = true
+disallow_incomplete_defs = true
+disallow_untyped_calls = true
+disallow_untyped_decorators = true
+disallow_untyped_defs = true
+pretty = true
+warn_redundant_casts = true
+warn_unused_configs = true
+warn_unused_ignores = true
+exclude = ['venv', '.venv']
+
+[tool.ruff]
+# Defaults to Black like
+line-length = 100
+indent-width = 4
+
+# Assume Python 3.12
+target-version = "py312"
+lint.extend-select = ["I"]
+
+[tool.pytest.ini_options]
+addopts = [
+    "--import-mode=importlib",
+]
+pythonpath = '.'
+testpaths = ['tests']
+
+[tool.pyright]
+pythonPlatform = "All"
